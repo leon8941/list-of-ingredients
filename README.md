@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is based on the tutorial in this website -> https://blog.heroku.com/a-rock-solid-modern-web-stack#step-2-getting-activeadmin-working
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
