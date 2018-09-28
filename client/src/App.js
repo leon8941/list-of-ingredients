@@ -50,11 +50,9 @@ class App extends Component {
         </Header>
         <Divider hidden section />
         {drinks && drinks.length
-          ? 
-          <Button.Group color='teal' fluid widths={drinks.length}>
+          ? <Button.Group color='teal' fluid widths={drinks.length}>
             {Object.keys(drinks).map((key) => {
-              return 
-                <Button active={drink && drink.id === drinks[key].id} fluid key={key} onClick={() => this.getDrink(drinks[key].id)}>
+              return <Button active={drink && drink.id === drinks[key].id} fluid key={key} onClick={() => this.getDrink(drinks[key].id)}>
                   {drinks[key].title}
                 </Button>
             })}
