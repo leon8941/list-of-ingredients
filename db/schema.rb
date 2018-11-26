@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_09_28_064840) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,11 +37,12 @@ ActiveRecord::Schema.define(version: 2018_09_28_064840) do
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.integer "drink_id"
+    t.bigint "drink_id"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["drink_id"], name: "index_ingredients_on_drink_id"
   end
 
+  add_foreign_key "ingredients", "drinks"
 end
