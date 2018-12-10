@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import appClasses from './App.css';
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
 import Chef from './Chef/Chef';
 
@@ -85,7 +85,8 @@ class Home extends Component {
     }
 
     return( 
-        <div className="Home">
+        <div className={appClasses.App}>
+          <p className={appClasses.red}>This is crazy!</p>
           <button style={buttonStyle} onClick={this.toggleVisibility}>Toggle Visibility</button>
           {chefs}
         </div> 

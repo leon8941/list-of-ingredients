@@ -3,7 +3,7 @@ import './Chef.css';
 
 const chef = (props) => {
     const style = {
-        '@media (min-width: 500px)' : {
+        '@media (minWidth: 500px)' : {
             width: '450px'
         }
     }
