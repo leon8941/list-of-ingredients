@@ -1,19 +1,38 @@
 import React, {Component} from 'react';
 import chefClass from './Chef.css';
 
-const chef = (props) => {
-    const style = {
-        '@media (minWidth: 500px)' : {
-            width: '450px'
-        }
+const style = {
+    '@media (minWidth: 500px)' : {
+        width: '450px'
     }
-    return (
-        <div className={chefClass.Chef} style={style}>
-            <p onClick={props.click}>I am {props.name}, and I am {props.age} years old!</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name}/>
-        </div>
-    )
 }
 
-export default chef;
+class Chef extends Component {
+    constructor(props) {
+        super(props);
+
+        console.log('Chef.js inside constructor',props)
+    }
+    
+    componentWillMount = () => {
+        console.log('Chef.js inside componentWillMount')
+    }
+    
+    componentDidMount = () => {
+        console.log('Chef.js inside componentDidMount')
+    }
+
+    render() {
+        console.log('Chef.js inside render');
+        return (
+            <div className={chefClass.Chef} style={style}>
+                <p onClick={this.props.click}>I am {this.props.name}, and I am {this.props.age} years old!</p>
+                <p>{this.props.children}</p>
+                <input type="text" onChange={this.props.changed} value={this.props.name}/>
+            </div>
+        )
+    }
+}
+
+
+export default Chef;

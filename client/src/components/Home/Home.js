@@ -6,6 +6,20 @@ import Chefs from '../Chefs/Chefs';
 import Cockpit from '../Cockpit/Cockpit';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    console.log('Home.js inside constructor',props)
+  }
+
+  componentWillMount = () => {
+    console.log('Home.js inside componentWillMount')
+  }
+  
+  componentDidMount = () => {
+    console.log('Home.js inside componentDidMount')
+  }
+
   state = {
     chefs: [
       {id: 1, name: "Chef Mike", age: 28},
@@ -54,7 +68,8 @@ class Home extends Component {
   }
 
   render() { 
-
+    console.log('Home.js inside render');
+    
     let chefs = null;
 
     if(this.state.showChefs){
