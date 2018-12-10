@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import appClasses from './App.css';
-import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react'
-import Chef from './Chef/Chef';
+import logo from '../../assets/logo.svg';
+import appClasses from '../../containers/App.css';
+import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react';
+import Chefs from '../Chefs/Chefs';
+import Cockpit from '../Cockpit/Cockpit';
 
 class Home extends Component {
   state = {
@@ -52,42 +53,23 @@ class Home extends Component {
     })
   }
 
-  render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
+  render() { 
 
     let chefs = null;
 
     if(this.state.showChefs){
-      chefs = (
-        <div>
-          {this.state.chefs.map((chef, index) => {
-            return (
-              <Chef 
-                click = { () => this.deleteChefHandler(index) }
-                key = {chef.id}
-                name = {chef.name}
-                age = {chef.age}
-                changed = { (event) => this.nameChangedHandler(event, chef.id) }
-              />
-            )
-          })}
-        </div>
-      )
-
-      buttonStyle.backgroundColor = "red"
+      chefs = <Chefs 
+            chefs={this.state.chefs}
+            clicked={this.deleteChefHandler} 
+            changed={this.nameChangedHandler} /> 
     }
 
     return( 
         <div className={appClasses.App}>
-          <p className={appClasses.red}>This is crazy!</p>
-          <button style={buttonStyle} onClick={this.toggleVisibility}>Toggle Visibility</button>
+          <Cockpit 
+            chefs={this.state.chefs}
+            showChefs={this.state.showChefs} 
+            clicked={this.toggleVisibility} />
           {chefs}
         </div> 
     )
