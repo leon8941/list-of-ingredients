@@ -4,6 +4,8 @@ import appClasses from '../../containers/App.css';
 import { Container, Header, Segment, Button, Icon, Dimmer, Loader, Divider } from 'semantic-ui-react';
 import Chefs from '../Chefs/Chefs';
 import Cockpit from '../Cockpit/Cockpit';
+import Aux from '../../hoc/Aux';
+import withClass from '../../hoc/withClass';
 
 class Home extends Component {
   constructor(props) {
@@ -101,16 +103,19 @@ componentDidUpdate = () => {
     }
 
     return( 
-        <div className={appClasses.App}>
+        <Aux>
           <Cockpit 
             chefs={this.state.chefs}
             showChefs={this.state.showChefs} 
             clicked={this.toggleVisibility} />
           {chefs}
-        </div> 
+        </Aux> 
     )
   }
 }
+
+export default withClass(Home, appClasses.App)
+
 // class Home extends Component {
 //   constructor () {
 //     super()
@@ -189,5 +194,3 @@ componentDidUpdate = () => {
 //       </Container>
 //   }
 // }
-
-export default Home

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import chefClass from './Chef.css';
+import Aux from '../../../hoc/Aux';
+import withClass from '../../../hoc/withClass';
 
 const style = {
     '@media (minWidth: 500px)' : {
@@ -29,14 +31,14 @@ class Chef extends Component {
     render() {
         console.log('Chef.js inside render');
         return (
-            <div className={chefClass.Chef} style={style}>
+            <Aux>
                 <p onClick={this.props.click}>I am {this.props.name}, and I am {this.props.age} years old!</p>
                 <p>{this.props.children}</p>
                 <input type="text" onChange={this.props.changed} value={this.props.name}/>
-            </div>
+            </Aux>
         )
     }
 }
 
 
-export default Chef;
+export default withClass(Chef, chefClass.Chef);
