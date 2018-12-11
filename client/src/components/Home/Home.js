@@ -20,6 +20,27 @@ class Home extends Component {
     console.log('Home.js inside componentDidMount')
   }
 
+  componentWillUnmount = () => {
+    console.log('Home.js inside componentWillUnmount')
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    console.log('Home.js inside componentWillReceiveProps', nextProps)
+}
+
+shouldComponentUpdate = (nextProps, nextState) => {
+    console.log('Home.js inside shouldComponentUpdate', nextProps, nextState);
+    return true;
+}
+
+componentWillUpdate = (nextProps, nextState) => {
+    console.log('Home.js inside componentWillUpdate', nextProps, nextState);
+}
+
+componentDidUpdate = () => {
+    console.log('Home.js inside componentDidUpdate');
+}
+  
   state = {
     chefs: [
       {id: 1, name: "Chef Mike", age: 28},
@@ -69,7 +90,7 @@ class Home extends Component {
 
   render() { 
     console.log('Home.js inside render');
-    
+
     let chefs = null;
 
     if(this.state.showChefs){

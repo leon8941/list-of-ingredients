@@ -15,7 +15,28 @@ class Chefs extends Component {
     componentDidMount = () => {
         console.log('Chefs.js inside componentDidMount')
     }
-    
+
+    componentWillUnmount = () => {
+        console.log('Chefs.js inside componentWillUnmount')
+    }
+
+    componentWillReceiveProps = (nextProps) => {
+        console.log('Chefs.js inside componentWillReceiveProps', nextProps)
+    }
+
+    shouldComponentUpdate = (nextProps, nextState) => {
+        console.log('Chefs.js inside shouldComponentUpdate', nextProps, nextState);
+        return true;
+    }
+
+    componentWillUpdate = (nextProps, nextState) => {
+        console.log('Chefs.js inside componentWillUpdate', nextProps, nextState);
+    }
+
+    componentDidUpdate = () => {
+        console.log('Chefs.js inside componentDidUpdate');
+    }
+
     render () {
         console.log('Chefs.js inside render');
 

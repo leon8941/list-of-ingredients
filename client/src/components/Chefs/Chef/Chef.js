@@ -22,6 +22,10 @@ class Chef extends Component {
         console.log('Chef.js inside componentDidMount')
     }
 
+    componentWillUnmount = () => {
+        console.log('Chef.js inside componentWillUnmount')
+    }
+
     render() {
         console.log('Chef.js inside render');
         return (
