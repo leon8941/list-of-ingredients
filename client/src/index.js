@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App'
+import App from './App';
 import 'semantic-ui-css/semantic.css';
 import './index.css';
 // import registerServiceWorker from './registerServiceWorker';
