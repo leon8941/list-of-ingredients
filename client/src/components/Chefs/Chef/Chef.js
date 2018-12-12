@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import chefClass from './Chef.css';
 import Aux from '../../../hoc/Aux';
 import withClass from '../../../hoc/withClass';
+import PropTypes from 'prop-types';
 
 const style = {
     '@media (minWidth: 500px)' : {
@@ -40,5 +41,11 @@ class Chef extends Component {
     }
 }
 
+Chef.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
+}
 
 export default withClass(Chef, chefClass.Chef);

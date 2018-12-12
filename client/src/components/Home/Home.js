@@ -50,14 +50,17 @@ componentDidUpdate = () => {
       {id: 3, name: "Chef Micah", age: 31},
       {id: 4, name: "Chef Arthur", age: 26}
     ],
-    showChefs: false
+    showChefs: false,
+    toggleClicked: 0
   }
 
   toggleVisibility = () => {
     const doesShow = this.state.showChefs;
-    this.setState(
-      {
-        showChefs: !doesShow
+    this.setState( (prevState, props) => {
+        return {
+          showChefs: !doesShow,
+          toggleClicked: prevState.toggleClicked + 1
+        }
       }
     );
   }
