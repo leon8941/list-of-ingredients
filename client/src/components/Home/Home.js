@@ -7,6 +7,8 @@ import Cockpit from '../Cockpit/Cockpit';
 import Aux from '../../hoc/Aux';
 import withClass from '../../hoc/withClass';
 
+export const AuthContext = React.createContext(false);
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,8 @@ componentDidUpdate = () => {
       {id: 4, name: "Chef Arthur", age: 26}
     ],
     showChefs: false,
-    toggleClicked: 0
+    toggleClicked: 0,
+    authenticated: false
   }
 
   toggleVisibility = () => {
@@ -93,6 +96,12 @@ componentDidUpdate = () => {
     })
   }
 
+  loginHandler = () => {
+    this.setState({
+      authenticated: true
+    })
+  }
+
   render() { 
     console.log('Home.js inside render');
 
@@ -110,8 +119,11 @@ componentDidUpdate = () => {
           <Cockpit 
             chefs={this.state.chefs}
             showChefs={this.state.showChefs} 
-            clicked={this.toggleVisibility} />
-          {chefs}
+            clicked={this.toggleVisibility} 
+            login={this.loginHandler} />
+          <AuthContext.Provider value={this.state.authenticated}>
+            {chefs}
+          </AuthContext.Provider>
         </Aux> 
     )
   }

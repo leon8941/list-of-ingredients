@@ -5,7 +5,8 @@ class Chefs extends Component {
     constructor(props) {
         super(props);
 
-        console.log('Chefs.js inside constructor',props)
+        console.log('Chefs.js inside constructor',props);
+        this.lastChefRef = React.createRef();
     }
     
     componentWillMount = () => {
@@ -13,7 +14,9 @@ class Chefs extends Component {
     }
     
     componentDidMount = () => {
-        console.log('Chefs.js inside componentDidMount')
+        console.log('Chefs.js inside componentDidMount');
+
+        this.lastChefRef.current.focus();
     }
 
     componentWillUnmount = () => {
@@ -47,6 +50,8 @@ class Chefs extends Component {
                 name = {chef.name}
                 age = {chef.age}
                 changed = { (event) => this.props.changed(event, chef.id) }
+                position = {index}
+                ref = {this.lastChefRef}
                 />
         })
     }

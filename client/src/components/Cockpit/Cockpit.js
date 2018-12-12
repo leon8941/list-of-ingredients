@@ -21,6 +21,7 @@ const cockpit = (props) => {
         <div className={classes.Cockpit}>
             <p className={assignedClass.join('')}>This is crazy!</p>
             <button className={buttonClass} onClick={props.clicked}>Toggle Visibility</button>
+            <button className={buttonClass} onClick={props.login}>Login</button>
         </div>
     )
 }
