@@ -1,11 +1,16 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Layout from './components/Layout/Layout';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 
 class App extends Component {
   render () {
     return (
       <div>
-        Welcome
+        <Layout>
+          <BurgerBuilder/>
+        </Layout>
       </div>
     )
   }
